@@ -45,8 +45,8 @@ function sherborne_road_load_style()
 {
     if (!is_admin()) {
         wp_register_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Libre+Baskerville|Playfair+Display');
-        wp_enqueue_style('sherborne_road_style', get_stylesheet_uri());
-        wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri().'/css/grid500.css', array('sherborne_road_style'), '1.0');
+        wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, '1.1.0');
+        wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri().'/css/grid500.css', array('sherborne_road_style'), '1.1.0');
     }
 }
 add_action('wp_print_styles', 'sherborne_road_load_style');

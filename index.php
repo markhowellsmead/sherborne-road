@@ -57,7 +57,12 @@
                                 if (is_singular()) {
                                     the_post_thumbnail('post-thumbnail-full');
                                 } else {
-                                    the_post_thumbnail('medium');
+                                    ?>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                    <?php the_post_thumbnail('medium'); ?>
+                                    </a>
+                                <?php
+
                                 }
                                 ?>
                             </div>
@@ -72,7 +77,25 @@
 
                         <div class="content">
 
-                            <?php the_content(); ?>
+                            <?php
+                                if (is_singular()) {
+                                    the_content();
+                                } else {
+                                    the_excerpt(); ?>
+
+                                <?php if (get_post_type() == 'photo') : ?>
+
+                                    <p class="more"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('View larger', 'sherborne_road'); ?></a></p>
+
+                                <?php elseif (get_post_type() == 'post') : ?>
+                                    <p class="more"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Read more', 'sherborne_road'); ?></a></p>
+
+
+                                <?php endif; ?>
+                                    <?php
+
+                                }
+                            ?>
 
                         </div>
 
@@ -97,9 +120,6 @@
                                     <?php the_terms(get_the_ID(), 'post_tag', '<ul class="tags inline"><li>', '</li><li>', '</li></ul> '); ?>
 
                                 <?php endif; ?>
-
-                                <p><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Permanent link to this entry', 'sherborne_road'); ?></a></p>
-
                             </div>
 
                         <?php elseif (get_post_type() == 'photo') : ?>
