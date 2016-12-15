@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.0.0
+	Version: 1.0.1
 	Description: Sherborne Road is a teeny-tiny WordPress theme that can be used a starter theme or a *really* lightweight blog theme. It consists of just three PHP files and weighs in at 27 KB, excluding screenshot.png. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -385,6 +385,10 @@ footer:before {
 	display: block;
 	height: 1rem;
 	margin: 4vh auto;
+}
+
+footer .credit {
+    font-style: italic;
 }
 
 .title {
