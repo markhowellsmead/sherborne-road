@@ -1,0 +1,818 @@
+/*---------------------------------------------------------------------------------
+
+	Theme Name: Sherborne Road
+    Text Domain: sherborne_road
+	Version: 1.0.0
+	Description: Sherborne Road is a teeny-tiny WordPress theme that can be used a starter theme or a *really* lightweight blog theme. It consists of just three PHP files and weighs in at 27 KB, excluding screenshot.png. It features the aside post format, featured images and a responsive design.
+	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
+	Author: Mark Howells-Mead
+	Author URI: https://www.markweb.ch
+	License: GNU General Public License version 2.0
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+	All files, unless otherwise stated, are released under the GNU General Public License
+	version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+-----------------------------------------------------------------------------------
+
+	0.	CSS Reset
+	1.	Document Setup
+	2.  Structure
+	3.	Header
+	4.	Blog
+	5.  Post Content
+	6.	Comments
+	7.	Pagination
+	8.	Footer
+	9. Media Queries
+
+----------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	0. CSS Reset
+/* -------------------------------------------------------------------------------- */
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    @supports (height: 100vh){
+        height: 100vh;
+        min-height: 100vh;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+ol, ul { list-style:none; }
+
+blockquote:before,
+blockquote:after { content:""; }
+
+code,
+kbd,
+pre,
+samp {
+    color: #930;
+    font-family: monospace;
+    max-width: 100%;
+    overflow: auto;
+}
+
+pre {
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
+
+a { outline:none; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Screen Reader Text */
+
+.screen-reader-text {
+	clip: rect( 1px, 1px, 1px, 1px );
+	height: 1px;
+	overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 1rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 1rem 1.5rem 1rem;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	1. Document Setup
+/* -------------------------------------------------------------------------------- */
+
+
+body {
+    background: #f9faf9;
+	border: none;
+    color: #222;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-family: 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+}
+
+body * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+    border-bottom: 1px solid #999;
+}
+
+body a:hover {
+	color: #999;
+}
+
+nav a, header a {
+    border: none;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-weight: 400;
+}
+h4, h5, h6 {
+    font-family: 'Playfair Display', 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-weight: 600;
+}
+
+img {
+	display: block;
+	height: auto;
+    max-width: 100%;
+}
+
+ul.inline {
+    list-style-type: none;
+    padding: 0;
+}
+ul.inline li {
+    display: inline-block;
+    padding: 0 .4rem;
+}
+
+.clear { clear: both; }
+
+::selection {
+	background: #111;
+	color: #FFF;
+}
+
+input::-webkit-input-placeholder { color: #999; }
+input:-ms-input-placeholder { color: #999; }
+input::-moz-placeholder { color: #999; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	2.	Structure
+/* -------------------------------------------------------------------------------- */
+
+
+.wrapper {
+    margin: 0 auto;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	3.	Header
+/* -------------------------------------------------------------------------------- */
+
+
+.masthead {
+    padding: 1rem 2rem 0;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.masthead > :last-child {
+    margin-left: auto;
+}
+@media (min-width: 40rem){
+    .brand {
+        margin: 0;
+    }
+    .masthead {
+        display: flex;
+        max-width: 48rem;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 48rem){
+    .masthead {
+        padding: 4rem 0;
+        background-color: transparent;
+    }
+}
+
+.brand {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+@media (min-width: 40rem){
+    .brand {
+        text-align: left;
+    }
+}
+@media (min-width: 48rem){
+    .brand {
+        margin: 0;
+    }
+}
+
+.menu {
+	text-align: center;
+}
+.menu li {
+    display: inline-block;
+    text-align: center;
+    padding: 0 1rem;
+}
+.menu li li { font-style: italic; }
+.brand > .menu {
+    display: none;
+}
+
+.current-menu-item > a {
+    color: #7c9600;
+}
+
+@media ( min-width: 40rem ) {
+
+    .menu li { position: relative; }
+    .menu > li { display: inline-block; }
+
+    .menu .page_item_has_children > a:after,
+    .menu .menu-item-has-children > a:after {
+        content: " ↓";
+        font-family: 'Helvetica', sans-serif;
+    }
+
+    .menu ul {
+        position: absolute;
+            left: -10000px;
+            top: 1rem;
+        width: 200px;
+    }
+
+    .menu > li > ul {
+        font-size: 0.9em;
+        padding-top: 20px;
+    }
+
+    .menu li ul:before {
+        border: .0625rem solid transparent;
+        border-bottom-color: #111;
+        content: "";
+        display: block;
+        margin-left: -6px;
+        position: absolute;
+            left: 50%;
+            top: 8px;
+    }
+
+    .menu ul a {
+        background: #111;
+        color: #fff;
+        display: block;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .menu ul li:first-child > a { border-radius: 3px 3px 0 0; }
+    .menu ul li:last-child > a { border-radius: 0 0 3px 3px; }
+    .menu ul li:last-child:first-child > a { border-radius: 3px 3px 3px 3px; }
+
+    .menu ul a:hover { color: #fff; }
+
+    .menu > li:hover > ul {
+        left: 50%;
+        margin-left: -100px;
+    }
+
+    .menu ul li ul {
+        margin: 0;
+        padding-left: 20px;
+        top: 0;
+        width: 220px;
+    }
+
+    .menu ul li ul:before {
+        border-color: transparent;
+        border-right-color: #111;
+        left: 1rem;
+        top: 18px;
+    }
+
+    .menu ul li:hover > ul {
+        left: 200px;
+    }
+
+}
+
+.masthead h2 {
+    font-size: 1.5em;
+	font-weight: 500;
+}
+
+.subheader {
+	text-align: center;
+    color: #999;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	4.	Blog
+/* -------------------------------------------------------------------------------- */
+
+
+.avatar {
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+.post > * {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 45rem;
+}
+
+.featured-image {
+    border: none;
+}
+
+.single .post > .featured-image {
+    max-width: 80rem;
+    text-align: center;
+}
+.single .post > .featured-image img {
+    margin: 0 auto;
+}
+
+.post:before,
+.comments:before,
+.comment-respond:before,
+.comments .comment-respond:after,
+.pagination:before,
+footer:before {
+    background: url( 'images/sep.png' ) no-repeat center;
+    background-size: auto 100%;
+	content: "";
+	display: block;
+	height: 1rem;
+	margin: 4vh auto;
+}
+
+.title {
+    font-size: 2rem;
+	text-align: center;
+    margin-bottom: 1rem;
+}
+
+.featured-image {
+    display: block;
+    margin: 0 auto 2rem auto;
+}
+
+.meta {
+    color: #999;
+	margin-top: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.meta p {
+    margin-bottom: 1rem;
+}
+
+.meta a,
+.meta a:hover { color: #999; }
+
+.post-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+time {
+    display: block;
+    font-size: 1rem;
+}
+
+span.sep { margin: 0 1rem; }
+
+
+.sticky {}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	5.	Post Content
+/* -------------------------------------------------------------------------------- */
+
+
+.content * { max-width: 100%; }
+
+.content a:hover {
+    border-color: #999;
+    color: #999;
+    text-decoration: none;
+}
+
+.flex-video.widescreen {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.flex-video.widescreen iframe {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    width: 100%; height: 100%;
+}
+
+em {
+    font-style: italic;
+}
+
+.post p {
+	margin-bottom: 2rem;
+}
+
+.post .excerpt {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f0f0f0;
+}
+.post .excerpt p {
+    margin: 0;
+}
+
+.post > p:last-child { margin-bottom: 0; }
+
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+	margin-bottom: 2rem;
+}
+
+.post hr {
+	border: none;
+	margin: 2rem 0;
+    text-align: center;
+}
+
+.post hr:before { content: "***"; }
+
+.content > ol,
+.content > ul {
+    margin-bottom: 2rem;
+}
+
+.post ol,
+.post ul {
+    margin-left: 1.5rem;
+}
+
+.post ul { list-style: disc; }
+.post ul ul { list-style: circle; }
+.post ul ul ul { list-style: square; }
+
+.post ol { list-style: decimal; }
+.post ol ol { list-style: lower-alpha; }
+.post ol ol ol { list-style: lower-roman; }
+
+.post li {
+	margin-top: 0.5em;
+}
+
+dd + dt { margin-top: 1rem; }
+
+/* Quotes ----------------------------- */
+
+blockquote {
+	border-left: 1px solid #ccc;
+    margin: 0 0 2rem 0;
+    padding: 0 0 0 2rem;
+}
+
+blockquote p { font-style: italic; }
+
+blockquote cite:before { content: "— "; }
+
+/* Media ------------------------------ */
+
+div.wp-caption {
+	display: block;
+	margin-bottom: 2rem;
+}
+
+.alignleft,
+.alignright {
+	margin-bottom: 20px;
+    max-width: 50%;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 20px;
+}
+
+.alignright {
+	float: right;
+	margin-left: 2rem;
+}
+
+.aligncenter,
+.alignnone { margin: 0 auto; }
+
+.gallery-caption,
+.wp-caption-text {
+    font-size: 0.9em;
+    font-style: italic;
+	margin-top: 10px;
+}
+
+.aligncenter .wp-caption-text { text-align: center; }
+.alignright .wp-caption-text { text-align: right; }
+
+/* Inputs ----------------------------- */
+
+fieldset {
+    border: 1px solid #ddd;
+	padding: 25px;
+}
+
+fieldset legend {
+    font-size: 0.9em;
+    font-style: italic;
+	padding: 0 1rem;
+}
+
+label {
+	font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+input, textarea, select, button {
+    font-family: inherit;
+}
+
+textarea,
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"] {
+    border: 1px solid #ddd;
+	display: block;
+	font-size: 1rem;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    width: 100%;
+}
+
+textarea {
+	height: 14rem;
+}
+
+input[type="button"],
+input.button,
+input[type="submit"] {
+	background: #7c9600;
+    border: none;
+    color: #fff;
+    display: inline-block;
+	font-size: 1rem;
+    padding: 1rem 24px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+input[type="button"]:hover,
+input.button:hover,
+input[type="submit"]:hover {
+	background: #96ab32;
+	cursor: pointer;
+}
+
+/* Tables ----------------------------- */
+
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    font-size: 0.9em;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+th,
+td {
+	margin: 0;
+	overflow: visible;
+    padding: 2.5%;
+}
+
+caption {
+    border-bottom: 1px solid #ddd;
+	font-size: 13px;
+    padding-bottom: 2.5%;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+thead {
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+
+th {
+	border-bottom: 1px solid #ddd;
+	font-weight: 600;
+}
+
+tbody > tr:nth-child(even) { background-color: #f6f6f6; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	6.	Comments
+/* -------------------------------------------------------------------------------- */
+
+
+.comment { margin-top: 2rem; }
+
+.comment a { text-decoration: underline; }
+
+.commentlist > .comment:first-child { margin-top: 0; }
+
+.comment .comment { margin: 2rem 0 0 2rem; }
+
+.comment-author a,
+.comment-meta a,
+.comment .reply a {
+    text-decoration: none;
+}
+
+.comment-author {
+    padding-left: 50px;
+    position: relative;
+}
+
+.comment-author .says { display: none; }
+
+.comment-author .avatar {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 2rem;
+}
+
+.comment-awaiting-moderation {
+    font-size: 1rem;
+    font-style: italic;
+    padding-left: 50px;
+}
+
+.comment-meta {
+    font-size: 1rem;
+    margin: 2px 0 20px 0;
+    padding-left: 50px;
+}
+
+.comment-meta a,
+.comment-meta a:hover { color: #999; }
+
+.comment .reply {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.comment .reply a { color: #999; }
+.comment .reply a:hover { text-decoration: underline; }
+
+/* Respond ---------------------------- */
+
+.comment-respond p + p { margin-top: 20px; }
+
+.post .comment-reply-title { text-align: center; }
+
+.logged-in-as {
+    margin: -10px 0 2rem;
+    text-align: center;
+}
+
+.comment-respond label { display: block; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	7.	Pagination
+/* -------------------------------------------------------------------------------- */
+
+
+.pagination { text-align: center; }
+.pagination * + * { margin-left: 2rem; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	8.	Footer
+/* -------------------------------------------------------------------------------- */
+
+
+footer {
+	padding: 0 0 80px;
+	text-align: center;
+}
+
+footer p {
+	text-align: center;
+}
+
+footer p + p {
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+footer .credit-byline {
+    font-size: .875rem;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	9.	Media Queries
+/* -------------------------------------------------------------------------------- */
+
+
+@media ( max-width: 45rem ) {
+
+    body { font-size: 1.1rem; }
+
+    header { margin-bottom: 2rem; }
+
+    header h2 { margin-top: 2rem; }
+
+    .post:before,
+    .comments:before,
+    .comment-respond:before,
+    .comments .comment-respond:after,
+    .pagination:before,
+    footer:before {
+        margin: 50px auto;
+    }
+
+    .featured-image {
+        margin-left: -50vw;
+        position: relative;
+            left: 50%;
+        width: 100vw;
+    }
+
+    span.sep { margin: 0 .625rem; }
+
+    .pagination a + a { margin-left: 20px; }
+
+    footer { padding-bottom: 50px; }
+
+}
+
+@media ( max-width: 500px ) {
+
+    .post:before,
+    .comments:before,
+    .comment-respond:before,
+    .comments .comment-respond:after,
+    .pagination:before,
+    footer:before {
+        margin: 2rem auto;
+    }
+
+}
