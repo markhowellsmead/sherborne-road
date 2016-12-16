@@ -47,7 +47,7 @@
                                 <?php if (get_post_type() !== 'page') : ?>
                                     <time class="subheader"><?php printf(__('Published %s', 'sherborne_road'), get_the_time(get_option('date_format'))); ?></time>
                                 <?php endif;?>
-                                <?php edit_post_link( __('Edit'), '<p>', '</p>');?>
+                                <?php edit_post_link(__('Edit'), '<p>', '</p>');?>
                             </header>
                         <?php endif; ?>
 
@@ -71,7 +71,7 @@
                         <?php endif; ?>
 
                         <?php
-                            if (function_exists('sherborne_road_media')) {
+                            if (is_singular() && function_exists('sherborne_road_media')) {
                                 sherborne_road_media();
                             }
                         ?>
