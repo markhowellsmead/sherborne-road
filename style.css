@@ -127,7 +127,7 @@ body {
     color: #222;
     font-size: 1.3rem;
     line-height: 1.5;
-    font-family: 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-family: Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
 }
 
 body * {
@@ -151,12 +151,12 @@ nav a, header a {
 }
 
 h1, h2, h3 {
-    font-family: 'Playfair Display', 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
-    font-weight: 400;
+    font-family: 'Playfair Display', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-weight: 500;
 }
 h4, h5, h6 {
-    font-family: 'Playfair Display', 'Libre Baskerville', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
-    font-weight: 600;
+    font-family: 'Playfair Display', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-weight: 500;
 }
 
 img {
