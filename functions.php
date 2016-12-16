@@ -44,6 +44,10 @@ function sherborne_road_setup()
 }
 add_action('after_setup_theme', 'sherborne_road_setup');
 
+add_action('admin_init', function () {
+    add_editor_style(get_template_directory_uri().'/css/editor.css?v='.$themeversion);
+});
+
 /* ENQUEUE STYLES
 ------------------------------------------------ */
 
