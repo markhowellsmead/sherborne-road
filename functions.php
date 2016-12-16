@@ -65,20 +65,6 @@ function sherborne_road_load_scripts()
 }
 add_action('wp_print_scripts', 'sherborne_road_load_scripts');
 
-function sherborne_road_postexcerpt($content)
-{
-    global $post;
-
-    if (is_singular() && $post->post_type == 'post') {
-        if ($post->post_excerpt !== '' && false === strpos($content, trim($post->post_excerpt))) {
-            $content = '<div class="excerpt"><p>'.$post->post_excerpt.'</p></div>'.$content;
-        }
-    }
-
-    return $content;
-}
-add_filter('the_content', 'sherborne_road_postexcerpt', 10, 1);
-
 function sherborne_road_media()
 {
 
