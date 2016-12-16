@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.3.1
+	Version: 1.3.2
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -144,11 +144,11 @@ strong, b {
 a {
 	color: inherit;
 	text-decoration: none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #bbb;
 }
 
 body a:hover {
-	color: #999;
+	color: #666;
 }
 
 nav a, header a {
@@ -166,13 +166,15 @@ img {
     max-width: 100%;
 }
 
-ul.inline {
+.post ul.inline {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 ul.inline li {
     display: inline-block;
-    padding: 0 .4rem;
+    padding: 0 .5rem 0 0;
+    margin: 0 0 .5rem;
 }
 
 .clear { clear: both; }
@@ -182,7 +184,6 @@ ul.inline li {
 }
 .more a {
     color: #999;
-    border-bottom-color: #999;
 }
 
 ::selection {
@@ -420,8 +421,8 @@ footer .credit {
 
 .meta {
     color: #999;
-	margin-top: 2rem;
-    font-size: 1rem;
+	margin-top: 3rem;
+    font-size: 1.1rem;
 }
 
 .meta p {
@@ -429,7 +430,10 @@ footer .credit {
 }
 
 .meta a,
-.meta a:hover { color: #999; }
+.meta a:hover {
+    color: #666;
+    border-bottom-color: #aaa;
+}
 
 .post-header {
     margin-bottom: 2rem;
@@ -451,12 +455,6 @@ span.sep { margin: 0 1rem; }
 /* -------------------------------------------------------------------------------- */
 
 .content * { max-width: 100%; }
-
-.content a:hover {
-    border-color: #999;
-    color: #999;
-    text-decoration: none;
-}
 
 .flex-video.widescreen {
     height: 0;
@@ -524,7 +522,7 @@ em {
 .post ol ol ol { list-style: lower-roman; }
 
 .post li {
-	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 dd + dt { margin-top: 1rem; }
@@ -763,12 +761,8 @@ tbody > tr:nth-child(even) { background-color: #f6f6f6; }
 
 
 footer {
-	padding: 0 0 80px;
-	text-align: center;
-}
-
-footer p {
-	text-align: center;
+    margin: 0 auto 4rem;
+    max-width: 45rem;
 }
 
 footer p + p {

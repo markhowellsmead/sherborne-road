@@ -112,17 +112,9 @@
 
                             <div class="meta">
 
-                                <?php if (is_sticky()) : ?>
-
-                                    <span class="sep"></span><?php _e('Sticky', 'sherborne_road'); ?>
-
-                                <?php endif ?>
-
-                                </p>
-
                                 <?php if (is_singular('post')) : ?>
 
-                                    <?php the_terms(get_the_ID(), 'post_tag', '<ul class="tags inline"><li>', '</li><li>', '</li></ul> '); ?>
+                                    <?php the_terms(get_the_ID(), 'post_tag', '<ul class="tags inline"><li>'.__('More', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> '); ?>
 
                                 <?php endif; ?>
                             </div>
@@ -132,7 +124,7 @@
                             <div class="meta">
                                 <?php if (is_singular('photo')) : ?>
 
-                                    <?php the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>', '</li><li>', '</li></ul> '); ?>
+                                   <?php the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>'.__('More', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> '); ?>
 
                                 <?php endif; ?>
 
@@ -140,9 +132,7 @@
 
                         <?php endif; ?>
 
-                        <?php if (is_singular()) {
-    comments_template();
-} ?>
+                        <?php comments_template(); ?>
 
                     </div>
 

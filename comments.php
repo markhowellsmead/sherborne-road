@@ -1,23 +1,27 @@
-<?php if ($comments) : ?>
+<?php if (is_singular()) : ?>
 
-	<div class="comments">
+    <?php if ($comments) : ?>
 
-		<h3 class="comment-reply-title"><?php _e('Comments', 'sherborne_road') ?></h3>
+    	<div class="comments">
 
-		<?php wp_list_comments(array('style' => 'div')); ?>
+    		<h3 class="comment-reply-title"><?php _e('Comments', 'sherborne_road') ?></h3>
 
-		<?php if (paginate_comments_links('echo=0')) : ?>
+    		<?php wp_list_comments(array('style' => 'div')); ?>
 
-			<div class="pagination"><?php paginate_comments_links(); ?></div>
+    		<?php if (paginate_comments_links('echo=0')) : ?>
 
-		<?php endif; ?>
+    			<div class="pagination"><?php paginate_comments_links(); ?></div>
 
-	</div> <!-- comments -->
+    		<?php endif; ?>
 
-<?php endif; ?>
+    	</div> <!-- comments -->
 
-<?php if (comments_open() || pings_open()) : ?>
+    <?php endif; ?>
 
-	<?php comment_form('comment_notes_before=&comment_notes_after='); ?>
+    <?php if (comments_open() || pings_open()) : ?>
+
+    	<?php comment_form('comment_notes_before=&comment_notes_after='); ?>
+
+    <?php endif; ?>
 
 <?php endif; ?>
