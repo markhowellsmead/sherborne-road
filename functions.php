@@ -3,11 +3,14 @@
 /* THEME SETUP
 ------------------------------------------------ */
 
-$themedata = wp_get_theme();
-$themeversion = $themedata->Version;
+$themedata = array();
+$themeversion = null;
 
 function sherborne_road_setup()
 {
+    global $themedata, $themeversion;
+    $themedata = wp_get_theme();
+    $themeversion = $themedata->Version;
 
     // Automatic feed
     add_theme_support('automatic-feed-links');
@@ -47,6 +50,7 @@ add_action('after_setup_theme', 'sherborne_road_setup');
 function sherborne_road_load_style()
 {
     if (!is_admin()) {
+        global $themeversion;
         wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
         wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
         wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri().'/css/grid500.css', array('sherborne_road_style'), $themeversion);
