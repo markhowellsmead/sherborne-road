@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.4.0
+	Version: 1.4.1
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -274,7 +274,7 @@ input::-moz-placeholder { color: #999; }
     text-align: center;
     padding: 0 1rem;
 }
-.menu li li { font-style: italic; }
+
 .brand > .menu {
     display: none;
 }
@@ -288,16 +288,20 @@ input::-moz-placeholder { color: #999; }
     .menu li { position: relative; }
     .menu > li { display: inline-block; }
 
+    /*
     .menu .page_item_has_children > a:after,
     .menu .menu-item-has-children > a:after {
-        content: " ↓";
+        content: " ▼";
         font-family: 'Helvetica', sans-serif;
+        font-size: .75rem;
+        margin-left: .25rem;
     }
+    */
 
     .menu ul {
         position: absolute;
             left: -10000px;
-            top: 1rem;
+            top: 1.5rem;
         width: 200px;
     }
 
@@ -318,17 +322,9 @@ input::-moz-placeholder { color: #999; }
     }
 
     .menu ul a {
-        background: #111;
-        color: #fff;
         display: block;
-        padding: 1rem;
+        padding: 0 0 .5rem;
     }
-
-    .menu ul li:first-child > a { border-radius: 3px 3px 0 0; }
-    .menu ul li:last-child > a { border-radius: 0 0 3px 3px; }
-    .menu ul li:last-child:first-child > a { border-radius: 3px 3px 3px 3px; }
-
-    .menu ul a:hover { color: #fff; }
 
     .menu > li:hover > ul {
         left: 50%;
