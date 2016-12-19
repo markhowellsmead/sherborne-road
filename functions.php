@@ -20,6 +20,9 @@ function sherborne_road_setup()
     if (!isset($content_width)) {
         $content_width = 720;
     }
+    
+    add_image_size('post-thumbnail-full', 1280, 860, false);
+    add_image_size('photo-full', 1600, 1200, false);
 
     // Post thumbnails
     add_theme_support('post-thumbnails');
