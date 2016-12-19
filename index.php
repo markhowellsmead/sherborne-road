@@ -124,6 +124,7 @@
                             <div class="meta">
                                 <?php if (is_singular('photo')) : ?>
 
+								   <?php get_template_part('partials/metadata', 'photo');?>
                                    <?php the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>'.__('More', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> '); ?>
 
                                 <?php endif; ?>
