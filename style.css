@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.3.2
+	Version: 1.4.0
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -158,6 +158,7 @@ nav a, header a {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
     font-weight: 500;
+    line-height: 1.3;
 }
 
 img {
@@ -219,15 +220,32 @@ input::-moz-placeholder { color: #999; }
 .masthead > :last-child {
     margin-left: auto;
 }
+.brand {
+    margin-bottom: 1rem;
+}
+.brand .header {
+    text-align: center;
+}
+
 @media (min-width: 40rem){
     .brand {
         margin: 0;
     }
+    .brand .header {
+        text-align: left;
+    }
     .masthead {
         display: flex;
-        max-width: 48rem;
+        max-width: 45rem;
         align-items: flex-end;
         justify-content: flex-start;
+    }
+}
+
+@media (min-width: 42rem){
+    .masthead {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -237,9 +255,6 @@ input::-moz-placeholder { color: #999; }
     }
 }
 
-.brand {
-    margin-bottom: 1rem;
-}
 @media (min-width: 40rem){
     .brand {
         text-align: left;
@@ -338,6 +353,11 @@ input::-moz-placeholder { color: #999; }
         left: 200px;
     }
 
+}
+
+.masthead ul {
+    font-family: 'Playfair Display', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+    font-weight: 500;
 }
 
 .masthead h2 {
