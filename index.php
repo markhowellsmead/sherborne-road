@@ -52,6 +52,10 @@
                                         edit_post_link(__('Edit'), ' | ');
                                         ?>
                                     </time>
+                                <?php else:?>
+                                    <?php
+                                    edit_post_link(__('Edit'), '<p class="subheader">', '</p>');
+                                    ?>
                                 <?php endif;?>
                             </header>
                         <?php endif; ?>
