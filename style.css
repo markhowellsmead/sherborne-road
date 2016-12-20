@@ -777,8 +777,13 @@ tbody > tr:nth-child(even) { background-color: #f6f6f6; }
 
 
 footer {
+    padding: 1rem 1rem;
     margin: 0 auto 4rem;
     max-width: 45rem;
+}
+
+@media (min-width: 47rem){
+    padding: 1rem 0;
 }
 
 footer p + p {
@@ -786,8 +791,8 @@ footer p + p {
     margin-top: 1rem;
 }
 
-footer .credit-byline {
-    font-size: .875rem;
+footer p {
+    font-size: 1rem;
 }
 
 
