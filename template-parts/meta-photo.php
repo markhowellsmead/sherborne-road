@@ -1,3 +1,5 @@
+<div class="meta">
+
 <?php
 
 global $post;
@@ -15,3 +17,8 @@ if (!empty($out)) {
         implode('<br>', $out)
     );
 }
+
+the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>'.__('More', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> ');
+
+?>
+</div>
