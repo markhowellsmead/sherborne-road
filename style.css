@@ -472,6 +472,10 @@ span.sep { margin: 0 1rem; }
 
 .content * { max-width: 100%; }
 
+.embedded-content {
+    margin-bottom: 2rem;
+}
+
 .flex-video.widescreen {
     height: 0;
     padding-bottom: 56.25%;
