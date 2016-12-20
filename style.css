@@ -242,7 +242,7 @@ input::-moz-placeholder { color: #999; }
     }
 }
 
-@media (min-width: 42rem){
+@media (min-width: 47rem){
     .masthead {
         padding-left: 0;
         padding-right: 0;
@@ -275,11 +275,15 @@ input::-moz-placeholder { color: #999; }
     padding: 0 1rem;
 }
 
+.menu ul {
+    display: none;
+}
+
 .brand > .menu {
     display: none;
 }
 
-.current-menu-item > a {
+.current-menu-item > a, .current_page_ancestor > a {
     color: #7c9600;
 }
 
@@ -303,6 +307,7 @@ input::-moz-placeholder { color: #999; }
             left: -10000px;
             top: 1.5rem;
         width: 200px;
+        display: block;
     }
 
     .menu > li > ul {
