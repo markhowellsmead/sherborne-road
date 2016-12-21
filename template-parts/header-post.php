@@ -1,5 +1,5 @@
 <?php
-if (!get_post_format() == 'aside') {
+if (get_post_format() !== 'aside') {
     ?>
 
 <header class="post-header">
