@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.5.2
+	Version: 1.6.0
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -192,7 +192,7 @@ ul.inline li {
 }
 
 ::selection {
-	background: #7c9600;
+	background: rgb(124, 150, 0);
 	color: #FFF;
 }
 
@@ -288,7 +288,7 @@ input::-moz-placeholder { color: #999; }
 }
 
 .current-menu-item > a, .current_page_ancestor > a {
-    color: #7c9600;
+    color: rgb(124, 150, 0);
 }
 
 @media ( min-width: 40rem ) {
@@ -439,6 +439,19 @@ footer .credit {
     margin-bottom: 1rem;
 }
 
+.title.title-large {
+    font-size: 2.25rem;
+}
+
+.list-header .description {
+    font-family: 'Crimson Text', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
+}
+
+.list-header small {
+    display: block;
+    font-size: .5em;
+}
+
 .featured-image {
     display: block;
     margin: 0 auto 2rem auto;
@@ -458,6 +471,44 @@ footer .credit {
 .meta a:hover {
     color: #666;
     border-bottom-color: #aaa;
+}
+
+.mod.map-small .content {
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.mod.map-small .overlay {
+    z-index: 1;
+    border: none;
+}
+
+.mod.map-small .overlay {
+    background: rgba(255, 255, 255, .01);
+}
+
+.mod.map-small .overlay:hover {
+    background-color: rgba(124, 150, 0, .8);
+}
+
+.mod.map-small .overlay:hover:after {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    width: 100%; height: 100%;
+    content: attr(data-overlaytext);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 0 .5em rgb(124, 150, 0);
+}
+
+.flood-parent {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    width: 100%; height: 100%;
 }
 
 .post-header {
@@ -651,7 +702,7 @@ textarea {
 input[type="button"],
 input.button,
 input[type="submit"] {
-	background: #7c9600;
+	background: rgb(124, 150, 0);
     border: none;
     color: #fff;
     display: inline-block;

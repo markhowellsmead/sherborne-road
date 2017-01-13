@@ -4,7 +4,14 @@ get_header();
 
         <div class="wrapper">
 
-            <?php if (have_posts()) :
+            <?php
+
+            if (have_posts()) {
+
+                if ( is_archive() ) {
+                    get_template_part('template-parts/archive-header');
+                }
+
                 while (have_posts()) :
                     the_post(); ?>
 
@@ -44,10 +51,9 @@ get_header();
 
                 endwhile;
 
-            else:
+            }else{
                 get_template_part('template-parts/404');
-
-            endif;
+            }
 
             get_template_part('template-parts/pagination');
             get_template_part('template-parts/footer');

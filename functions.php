@@ -128,3 +128,5 @@ function set_my_comment_title($defaults)
     return $defaults;
 }
 add_filter('comment_form_defaults', 'set_my_comment_title', 20);
+
+remove_filter('term_description', 'wpautop');

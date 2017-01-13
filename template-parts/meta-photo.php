@@ -24,4 +24,7 @@ the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>'.__('More', 
 
 ?>
 </div><?php
+
+get_template_part('template-parts/map-small');
+
 endif;
