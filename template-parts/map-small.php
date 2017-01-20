@@ -32,7 +32,7 @@ class MapSmall {
                 unset($place['state']);
             }
 
-            $place_description = implode(', ', $place);
+            $place_description = '<a href="/topic/' .strtolower($place['city']). '/">' . implode(', ', $place) .'</a>';
 
             if(intval($location_data['GPSAltitudeCalculatedDecimal'])){
                 $altitude = sprintf(
