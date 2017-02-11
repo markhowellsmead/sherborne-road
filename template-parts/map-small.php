@@ -2,44 +2,44 @@
 
 namespace MHM\SherborneRoad;
 
-class MapSmall {
-
+class MapSmall
+{
     private $post_thumbnail = '';
 
-    public function dump($var, $die = false){
-        echo '<pre>' .print_r($var, 1). '</pre>';
-        if($die){
+    public function dump($var, $die = false)
+    {
+        echo '<pre>'.print_r($var, 1).'</pre>';
+        if ($die) {
             die();
         }
     }
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $location_data = $this->get_post_thumbnail_exif();
 
-        if(!empty((string)$location_data['GPSCalculatedDecimal'])){
-
+        if (!empty((string) $location_data['GPSCalculatedDecimal'])) {
             wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDd2xvaomkryB3frWackKfzxkMAukkDJsI', null, null);
             wp_enqueue_script('sherborne_road_maps', get_template_directory_uri().'/js/maps.js', array('jquery'), '1.0.0', true);
 
             $place = array(
                 'city' => $location_data['iptc']['city'],
                 'state' => $location_data['iptc']['state'],
-                'country' => $location_data['iptc']['country']
+                'country' => $location_data['iptc']['country'],
             );
 
-            if($place['city'] == $place['state']){
+            if ($place['city'] == $place['state']) {
                 unset($place['state']);
             }
 
-            $place_description = '<a href="/topic/' .strtolower($place['city']). '/">' . implode(', ', $place) .'</a>';
+            $place_description = '<a href="/topic/'.strtolower($place['city']).'/">'.implode(', ', $place).'</a>';
 
-            if(intval($location_data['GPSAltitudeCalculatedDecimal'])){
+            if (intval($location_data['GPSAltitudeCalculatedDecimal'])) {
                 $altitude = sprintf(
                     __(', at %s metres above sea level', 'sherborne_road'),
                     $location_data['GPSAltitudeCalculatedDecimal']
                 );
-            }else{
+            } else {
                 $altitude = '';
             }
 
@@ -51,7 +51,7 @@ class MapSmall {
                         <p><a href="//maps.google.com/?t=h&amp;q='.$location_data['GPSCalculatedDecimal'].'">'.__('View this location at the Google Maps website', 'permanenttourist').'</a></p>
                     </div>
                 </div>
-                <p>' .$place_description. $altitude. '.</p>
+                <p>'.$place_description.$altitude.'.</p>
             </div>';
         }
     }
@@ -172,13 +172,11 @@ class MapSmall {
                 $exifdata['iptc']['caption'] = @$iptc['2#120'][0];
 
                 $exifdata['iptc']['keywords'] = @$iptc['2#025'];
-
             }
         }
+
         return $exifdata;
     }
-
-
 
     public function get_post_thumbnail_exif()
     {
@@ -192,17 +190,16 @@ class MapSmall {
 
                 $this->post_thumbnail = $pre.'/'.$metaData['file'];
 
-                $exif = exif_read_data($this->post_thumbnail, 0, true);
+                $exif = @exif_read_data($this->post_thumbnail, 0, true);
 
-                if (isset($exif['GPS']['GPSLongitude']) && isset($exif['GPS']['GPSLongitude'])) {
+                if ($exif && isset($exif['GPS']['GPSLongitude']) && isset($exif['GPS']['GPSLongitude'])) {
                     return $this->extend_post_thumbnail_exif($exif['GPS']);
                 }
             }
         }
+
         return;
     }
 }
 
 new MapSmall();
-
-
