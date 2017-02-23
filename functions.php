@@ -58,7 +58,8 @@ function sherborne_road_load_style()
 {
     if (!is_admin()) {
         global $themeversion;
-        wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
+        //wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
+        wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
         wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
         wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri().'/css/grid500.css', array('sherborne_road_style'), $themeversion);
     }
@@ -130,3 +131,61 @@ function set_my_comment_title($defaults)
 add_filter('comment_form_defaults', 'set_my_comment_title', 20);
 
 remove_filter('term_description', 'wpautop');
+
+function sherborne_road_video_thumbnail($url)
+{
+    /*
+        *   @rev                16.11.2012 13:28 mhm
+        *   @param  url         'https://www.youtube.com/watch?v=Cr2_Dn0e5nU'
+        *   @return image src   'https://i.ytimg.com/vi/Cr2_Dn0e5nU/0.jpg'
+        *   @ref                https://code.google.com/apis/youtube/2.0/developers_guide_php.html#Understanding_Feeds_and_Entries
+        */
+
+        if ($url == '') {
+            return '';
+        }
+    $atts = array('url' => $url);
+
+    $aPath = parse_url($atts['url']);
+    $aPath['host'] = str_replace('www.', '', $aPath['host']);
+
+    switch ($aPath['host']) {
+        case 'youtu.be':
+            $atts['id'] = preg_replace('~^/~', '', $aPath['path']);
+
+            return 'https://i.ytimg.com/vi/'.$atts['id'].'/0.jpg';
+            break;
+
+        case 'youtube.com':
+            $aParams = explode('&', $aPath['query']);
+            foreach ($aParams as $param):
+                //  nach parameter 'v' suchen
+                $thisPair = explode('=', $param);
+                if (strtolower($thisPair[0]) == 'v'):
+                    $atts['id'] = $thisPair[1];
+                    break;
+                endif;
+            endforeach;
+            if (!$atts['id']) {
+                return '';
+            } else {
+                return 'https://i.ytimg.com/vi/'.$atts['id'].'/0.jpg';
+            }
+            break;
+
+        case 'vimeo.com':
+
+            $urlParts = explode('/', $atts['url']);
+            $hash = @unserialize(@file_get_contents('https://vimeo.com/api/v2/video/'.$urlParts[3].'.php'));
+            if ($hash && $hash[0] && (isset($hash[0]['thumbnail_large']) && $hash[0]['thumbnail_large'] !== '')) {
+                return $hash[0]['thumbnail_large'];
+            } else {
+                return '';
+            }
+            break;
+
+        default:
+            return '';
+            break;
+    }
+}
