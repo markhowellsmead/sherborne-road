@@ -15,7 +15,7 @@ if (has_post_thumbnail()) {
             );
         }
 
-        $target_height = 150;
+        $target_height = 200;
 
         printf(
             '<figure class="grid-item" data-postid="%1$s" style="flex-grow:%2$s;flex-basis:%3$spx;">
@@ -27,7 +27,7 @@ if (has_post_thumbnail()) {
             $imagesize[0] * $target_height / $imagesize[1],
             $imagesize[1] / $imagesize[0] * 100,
             get_permalink(),
-            '<img class="image"  src="'.$thumbnail_url.'" alt="'.get_the_title().'" />',
+            '<img class="image" data-original="' . $thumbnail_url . '" alt="' . get_the_title() . '" />',
             //get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'image')),
             get_the_title()
         );

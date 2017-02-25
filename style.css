@@ -410,7 +410,7 @@ input::-moz-placeholder { color: #999; }
 }
 
 .single .post > .featured-image {
-    max-width: 80rem;
+    max-width: 100rem;
     text-align: center;
 }
 .single .post > .featured-image img {
