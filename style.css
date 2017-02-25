@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.11.0
+	Version: 1.12.0
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -424,6 +424,62 @@ input::-moz-placeholder { color: #999; }
 
 .featured-image {
     border: none;
+    position: relative;
+}
+
+.navigation.next-previous a {
+    position: absolute;
+    top: 0;
+    text-indent: -800rem;
+    font-size: 0;
+    display: none;
+    width: 1.5rem; height: 3.5rem;
+    background: url('images/nextprev.svg') right center no-repeat;
+    background-size: contain;
+    text-decoration: none;
+    border: none;
+    opacity: .25;
+    transition: opacity 300ms ease-out;
+}
+.navigation.next-previous a:hover {
+    opacity: 1;
+}
+.navigation.next-previous a[rel="prev"] {
+    left: -2rem;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.navigation.next-previous a[rel="next"] {
+    right: -2rem;
+    background-position: right center;
+}
+@media screen and (min-width: 36em){
+    .navigation.next-previous a {
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 64em){
+    .navigation.next-previous a {
+        width: 2rem;
+    }
+
+    .navigation.next-previous a[rel="prev"] {
+        left: -3rem;
+    }
+    .navigation.next-previous a[rel="next"] {
+        right: -3rem;
+    }
+}
+
+@media screen and (min-width: 80em){
+
+    .navigation.next-previous a[rel="prev"] {
+        left: -4rem;
+    }
+    .navigation.next-previous a[rel="next"] {
+        right: -4rem;
+    }
 }
 
 .featured-image img {
@@ -575,6 +631,7 @@ footer .credit {
 
 .post-header {
     margin-bottom: 2rem;
+    position: relative;
 }
 
 time {

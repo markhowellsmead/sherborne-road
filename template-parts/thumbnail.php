@@ -3,7 +3,9 @@
     <div class="featured-image">
         <?php
 if (is_singular()) {
-    the_post_thumbnail('photo-full');
+    the_post_thumbnail('photo-full'); ?>
+<?php
+
 } else {
     ?>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
@@ -21,10 +23,10 @@ elseif (!is_singular() && function_exists('sherborne_road_video_thumbnail') && $
     if ($thumbnail = sherborne_road_video_thumbnail($video_url)) {
         printf(
             '<div class="featured-image">
-	                    <a href="%1$s" title="%2$s">
-	                        <img src="%3$s">
-	                    </a>
-	                </div>',
+				                    <a href="%1$s" title="%2$s">
+				                        <img src="%3$s">
+				                    </a>
+				                </div>',
             get_the_permalink(),
             get_the_title(),
             $thumbnail

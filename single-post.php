@@ -6,58 +6,52 @@ get_header();
 
             <?php
 
-            if (have_posts()) {
+if (have_posts()) {
+    if (is_archive()) {
+        get_template_part('template-parts/archive-header');
+    }
 
-                if ( is_archive() ) {
-                    get_template_part('template-parts/archive-header');
-                }
+    while (have_posts()):
+        the_post(); ?>
 
-                while (have_posts()) :
-                    the_post(); ?>
+	                    <div <?php post_class('post'); ?>>
 
-                    <div <?php post_class('post'); ?>>
+	                        <?php
+    get_template_part('template-parts/thumbnail');
+    if (is_singular() && function_exists('sherborne_road_media')) {
+        sherborne_road_media();
+    }
+    get_template_part('template-parts/header-post'); ?>
 
-                        <?php
-                        get_template_part('template-parts/thumbnail');
-                        get_template_part('template-parts/header-post');
+	                        <div class="content">
 
-                        if (is_singular() && function_exists('sherborne_road_media')) {
-                            sherborne_road_media();
-                        }
-                        ?>
+	                            <?php
+    if (is_singular()) {
+        the_content();
+    } else {
+        the_excerpt();
+        get_template_part('template-parts/linkto', get_post_type());
+    } ?>
 
-                        <div class="content">
+	                        </div>
 
-                            <?php
-                            if (is_singular()) {
-                                the_content();
-                            } else {
-                                the_excerpt();
-                                get_template_part('template-parts/linkto', get_post_type());
-                            }
-                            ?>
+	                        <?php
+    get_template_part('template-parts/linkpages');
+    get_template_part('template-parts/meta', get_post_type());
+    comments_template(); ?>
 
-                        </div>
+	                    </div>
 
-                        <?php
-                            get_template_part('template-parts/linkpages');
-                            get_template_part('template-parts/meta', get_post_type());
-                            comments_template();
-                        ?>
+	                    <?php
 
-                    </div>
+    endwhile;
+} else {
+    get_template_part('template-parts/404');
+}
 
-                    <?php
-
-                endwhile;
-
-            }else{
-                get_template_part('template-parts/404');
-            }
-
-            get_template_part('template-parts/pagination');
-            get_template_part('template-parts/footer');
-            ?>
+get_template_part('template-parts/pagination');
+get_template_part('template-parts/footer');
+?>
 
         </div>
 
