@@ -1,13 +1,27 @@
-<header class="post list-header">
-	<h1 class="title title-large"><?php echo single_cat_title('',false);?></h1>
-	<?php 
-	$header_description = term_description();
-	if( !empty($header_description) ):?>
+<?php
 
-	<h2 class="description"><?php echo $header_description;?></h2>
+    $term = get_queried_object();
+    $tax_image = get_field('taxonomy_image', $term);
 
-	<?php
-	endif;
-	?>
+    if ($tax_image) {
+        $class = 'with-image';
+        $attribute = ' style="background-image:url('.$tax_image['url'].')"';
+    } else {
+        $class = '';
+        $attribute = '';
+    }
 
+?><header class="post list-header <?=$class?>" <?=$attribute?>>
+	<div class="list-header-content">
+		<h1 class="title title-large"><?php echo single_cat_title('', false);?></h1>
+		<?php 
+        $header_description = term_description();
+        if (!empty($header_description)):?>
+
+		<h2 class="description"><?php echo $header_description;?></h2>
+
+		<?php
+        endif;
+        ?>
+	</div>
 </header>

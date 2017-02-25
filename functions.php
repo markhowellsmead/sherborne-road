@@ -37,9 +37,9 @@ function sherborne_road_setup()
     register_nav_menu('primary-menu', __('Primary Menu', 'sherborne_road'));
 
     // Make the theme translation ready
-    load_theme_textdomain('sherborne_road', get_template_directory() . '/languages');
+    load_theme_textdomain('sherborne_road', get_template_directory().'/languages');
 
-    $locale_file = get_template_directory() . '/languages/' . get_locale();
+    $locale_file = get_template_directory().'/languages/'.get_locale();
 
     if (is_readable($locale_file)) {
         require_once $locale_file;
@@ -48,7 +48,7 @@ function sherborne_road_setup()
 add_action('after_setup_theme', 'sherborne_road_setup');
 
 add_action('admin_init', function () {
-    add_editor_style(get_template_directory_uri() . '/css/editor.css?v=' . $themeversion);
+    add_editor_style(get_template_directory_uri().'/css/editor.css?v='.$themeversion);
 });
 
 /* ENQUEUE STYLES
@@ -58,9 +58,10 @@ function sherborne_road_load_style()
 {
     if (!is_admin()) {
         global $themeversion;
-        wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
+        //wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
+        wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
         wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
-        wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri() . '/css/grid500.css', array('sherborne_road_style'), $themeversion);
+        wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri().'/css/grid500.css', array('sherborne_road_style'), $themeversion);
     }
 }
 add_action('wp_print_styles', 'sherborne_road_load_style');
@@ -73,20 +74,18 @@ function sherborne_road_load_scripts()
     if ((!is_admin()) && is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
-    wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/jquery.lazyload.min.js', array('jquery'), $themeversion, true);
-    wp_enqueue_script('ui', get_template_directory_uri() . '/js/ui.js', array('jquery', 'lazyload'), $themeversion, true);
 }
-add_action('wp_enqueue_scripts', 'sherborne_road_load_scripts');
+add_action('wp_print_scripts', 'sherborne_road_load_scripts');
 
 function sherborne_road_media()
 {
 
     /*
-     * Inserts post-thumbnail or Flickr image or video into the top of the_content
-     * (Singular view only)
-     *
-     * @since    02/03/16
-     */
+    * Inserts post-thumbnail or Flickr image or video into the top of the_content
+    * (Singular view only)
+    *
+    * @since    02/03/16
+    */
 
     global $post;
 
@@ -95,7 +94,7 @@ function sherborne_road_media()
             if (filter_var($flickr_code, FILTER_VALIDATE_URL)) {
                 $media_content = wp_oembed_get($flickr_code, array('width' => 1024, 'height' => 1024));
             } else {
-                $media_content = wp_oembed_get('https://www.flickr.com/photos/mhowells/' . $flickr_code . '/', array('width' => 1024, 'height' => 1024));
+                $media_content = wp_oembed_get('https://www.flickr.com/photos/mhowells/'.$flickr_code.'/', array('width' => 1024, 'height' => 1024));
             }
         } elseif ($post->post_type == 'attachment') {
             $media_content = wp_get_attachment_image($post->ID, 'large');
@@ -106,7 +105,7 @@ function sherborne_road_media()
         }
 
         if ($media_content && $media_content !== '') {
-            echo '<div class="featured-image">' . $media_content . '</div>';
+            echo '<div class="featured-image">'.$media_content.'</div>';
         }
     }
 }
@@ -116,9 +115,9 @@ function sherborne_road_wrapoembed($html, $url = '', $attr = array())
     preg_match('~[www\.]youtube~', $url, $matches_yt);
     preg_match('~[www\.]vimeo~', $url, $matches_vimeo);
     if (!is_feed() && (!empty($matches_yt) || !empty($matches_vimeo))) {
-        return '<div class="pt-videoembed">' . $html . '</div>';
+        return '<div class="pt-videoembed">'.$html.'</div>';
     } else {
-        return '<div class="embedded-content"> ' . $html . '</div>';
+        return '<div class="embedded-content"> '.$html.'</div>';
     }
 }
 add_filter('embed_oembed_html', 'sherborne_road_wrapoembed', 10, 4);
@@ -132,3 +131,61 @@ function set_my_comment_title($defaults)
 add_filter('comment_form_defaults', 'set_my_comment_title', 20);
 
 remove_filter('term_description', 'wpautop');
+
+function sherborne_road_video_thumbnail($url)
+{
+    /*
+        *   @rev                16.11.2012 13:28 mhm
+        *   @param  url         'https://www.youtube.com/watch?v=Cr2_Dn0e5nU'
+        *   @return image src   'https://i.ytimg.com/vi/Cr2_Dn0e5nU/0.jpg'
+        *   @ref                https://code.google.com/apis/youtube/2.0/developers_guide_php.html#Understanding_Feeds_and_Entries
+        */
+
+        if ($url == '') {
+            return '';
+        }
+    $atts = array('url' => $url);
+
+    $aPath = parse_url($atts['url']);
+    $aPath['host'] = str_replace('www.', '', $aPath['host']);
+
+    switch ($aPath['host']) {
+        case 'youtu.be':
+            $atts['id'] = preg_replace('~^/~', '', $aPath['path']);
+
+            return 'https://i.ytimg.com/vi/'.$atts['id'].'/0.jpg';
+            break;
+
+        case 'youtube.com':
+            $aParams = explode('&', $aPath['query']);
+            foreach ($aParams as $param):
+                //  nach parameter 'v' suchen
+                $thisPair = explode('=', $param);
+                if (strtolower($thisPair[0]) == 'v'):
+                    $atts['id'] = $thisPair[1];
+                    break;
+                endif;
+            endforeach;
+            if (!$atts['id']) {
+                return '';
+            } else {
+                return 'https://i.ytimg.com/vi/'.$atts['id'].'/0.jpg';
+            }
+            break;
+
+        case 'vimeo.com':
+
+            $urlParts = explode('/', $atts['url']);
+            $hash = @unserialize(@file_get_contents('https://vimeo.com/api/v2/video/'.$urlParts[3].'.php'));
+            if ($hash && $hash[0] && (isset($hash[0]['thumbnail_large']) && $hash[0]['thumbnail_large'] !== '')) {
+                return $hash[0]['thumbnail_large'];
+            } else {
+                return '';
+            }
+            break;
+
+        default:
+            return '';
+            break;
+    }
+}
