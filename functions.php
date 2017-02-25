@@ -54,26 +54,33 @@ add_action('admin_init', function () {
 /* ENQUEUE STYLES
 ------------------------------------------------ */
 
-function sherborne_road_load_style()
+function sherborne_road_load_styles()
 {
-    if (!is_admin()) {
-        global $themeversion;
-        //wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
-        wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
-        wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
-        wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri() . '/css/grid500.css', array('sherborne_road_style'), $themeversion);
-    }
+    global $themeversion;
+    //wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i|Playfair+Display');
+    wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
+    wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
+    wp_enqueue_style('sherborne_road_grid500', get_template_directory_uri() . '/css/grid500.css', array('sherborne_road_style'), $themeversion);
+    wp_enqueue_style('fanncybox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/css/jquery.fancybox.min.css', array('sherborne_road_style'), '2.1.6');
 }
-add_action('wp_print_styles', 'sherborne_road_load_style');
+add_action('wp_enqueue_scripts', 'sherborne_road_load_styles');
 
-/* ENQUEUE COMMENT-REPLY.JS
+/* ENQUEUE SCRIPTS
 ------------------------------------------------ */
+
+add_action('wp_head', function () {
+    echo '<script>
+        document.documentElement.className = document.documentElement.className.replace(\'no-js\', \'js\');
+        document.cookie = \'resolution=\'+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+\'; path=/\';
+    </script>';
+});
 
 function sherborne_road_load_scripts()
 {
     if ((!is_admin()) && is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+    wp_enqueue_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array('jquery'), $themeversion, true);
     wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/jquery.lazyload.min.js', array('jquery'), $themeversion, true);
     wp_enqueue_script('ui', get_template_directory_uri() . '/js/ui.js', array('jquery', 'lazyload'), $themeversion, true);
 }
