@@ -45,6 +45,11 @@ html, body {
     }
 }
 
+@media screen {
+    html {
+        background: rgb(124, 150, 0);
+    }
+}
 
 h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
 	margin:0;
@@ -127,6 +132,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 body {
+    border-top: .125rem solid rgb(124, 150, 0);
     background: #f9faf9;
 	border: none;
     color: #444;
@@ -230,6 +236,7 @@ input::-moz-placeholder { color: #999; }
     padding: 1rem 2rem;
     margin: 0 auto;
     background-color: #fff;
+    border-top: 2px solid rgb(124, 150, 0);
 }
 .masthead > :last-child {
     margin-left: auto;
@@ -970,7 +977,7 @@ tbody > tr:nth-child(even) { background-color: #f6f6f6; }
 
 footer {
     padding: 1rem 1rem;
-    margin: 0 auto 4rem;
+    margin: 0 auto;
     max-width: 45rem;
 }
 
@@ -1040,14 +1047,13 @@ footer p {
 
 
 .module.banner_image {
-    height: 0;
-    padding-bottom: 50%;
-    background: bottom center/cover no-repeat;
+    height: 100vh;
+    background: center/cover no-repeat;
     position: relative;
     overflow: hidden;
 }
 
-.module.banner_image:after {
+/*.module.banner_image:after {
     content: '';
     display: block;
     position: absolute;
@@ -1056,7 +1062,7 @@ footer p {
     -webkit-box-shadow: inset 0 -7vh 8vh 0 #f9faf9;
     -moz-box-shadow: inset 0 -7vh 8vh 0 #f9faf9;
     box-shadow: inset 0 -7vh 8vh 0 #f9faf9;
-}
+}*/
 
 /*.module.banner_image:before {
     content: '';
@@ -1068,7 +1074,7 @@ footer p {
     transform-origin: left;
 }*/
 
-.module.banner_image:before {
+/*.module.banner_image:before {
     content: '';
     display: block;
     position: absolute;
@@ -1076,29 +1082,28 @@ footer p {
     bottom: 0; right: 0;
     z-index: 1;
     background: url('http://dev.permanenttourist.ch/pt9b/css/images/overlay.png');
-}
+}*/
 
-@media screen and (min-width: 56.25rem) and (min-height: 37.5rem){
+/*@media screen and (min-width: 56.25rem) and (min-height: 37.5rem){
      .module.banner_image {
         padding-bottom: 33.33333333%;
      }
-}
+}*/
 
 .page-template-page-home .brand {
     margin-top: 0;
 }
 .page-template-page-home .wrapper {
-    margin-top: -8rem;
+    margin-top: -4rem;
 }
-@media screen and (min-width: 56.25rem) and (min-height: 37.5rem){
+/*@media screen and (min-width: 56.25rem) and (min-height: 37.5rem){
     .page-template-page-home .wrapper {
         margin-top: -4.125rem;
     }
-}
+}*/
 .page-template-page-home .masthead {
-    position: relative;
     z-index: 3;
-    background: transparent;
+    background: rgba(124, 150, 0, .65);
 }
 
 .page-template-page-home .masthead a {
