@@ -10,5 +10,5 @@
 <body <?php body_class(); ?>>
 
 <?php
-   get_template_part('template-parts/masthead');
+   get_template_part('template-parts/title-bar');
 ?>
