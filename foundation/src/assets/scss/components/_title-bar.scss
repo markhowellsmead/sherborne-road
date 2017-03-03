@@ -1,8 +1,21 @@
 .title-bar {
+	font-family: $header-font-family;
 	width: 100%;
 	z-index: 10;
-
 	a {
 		border: none;
 	}
+
+	@media screen {
+	    border-top: 2px solid rgb(124, 150, 0);
+	    box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .1);
+	}
+
+	body.home & {
+		background: rgba($primary-color, .65) none;
+		a {
+			color: $white;
+		}
+	}
+
 }
