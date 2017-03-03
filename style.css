@@ -45,12 +45,6 @@ html, body {
     }
 }
 
-@media screen {
-    html {
-        background: rgb(124, 150, 0);
-    }
-}
-
 h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
 	margin:0;
 	padding:0;
@@ -234,15 +228,12 @@ input::-moz-placeholder { color: #999; }
 /* -------------------------------------------------------------------------------- */
 
 
-.masthead {
+.title-bar {
     position: relative;
     padding: 1rem 2rem;
     margin: 0 auto;
     background-color: #fff;
     border-top: 2px solid rgb(124, 150, 0);
-}
-.masthead > :last-child {
-    margin-left: auto;
 }
 .brand {
     margin-bottom: 1rem;
@@ -259,33 +250,11 @@ input::-moz-placeholder { color: #999; }
     .brand .header {
         text-align: left;
     }
-    .masthead {
-        display: flex;
-        justify-content: center;
-    }
-    .masthead .constraint {
-        display: flex;
-        width: 100%;
-        max-width: 45rem;
-        align-items: flex-end;
-        justify-content: flex-start;
-    }
-    .masthead > :last-child {
-        margin-left: 0;
-    }
-    .masthead .constraint > :last-child {
-        margin-left: auto;
-    }
 }
 
 @media (min-width: 47rem){
-    .masthead {
+    .title-bar {
         background: linear-gradient(rgba(249, 250, 249, 1) 25%, rgba(249, 250, 249, .9) 65%, rgba(249, 250, 249, .8) 100%);
-        position: fixed;
-        z-index: 20;
-        top: 0;
-        left: 0;
-        right: 0;
         max-width: 100%;
         padding: 1rem 2rem;
         box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .1);
@@ -396,12 +365,7 @@ input::-moz-placeholder { color: #999; }
 
 }
 
-.masthead ul {
-    font-family: 'Playfair Display', Baskerville, 'Hoefler Text', Garamond,  'Times New Roman', serif;
-    font-weight: 500;
-}
-
-.masthead h2 {
+.title-bar h2 {
     font-size: 1.5em;
 }
 
@@ -409,7 +373,7 @@ input::-moz-placeholder { color: #999; }
     color: #999;
 }
 
-.masthead .subheader {
+.title-bar .subheader {
     display: none;
 }
 
@@ -1102,11 +1066,11 @@ footer p {
         margin-top: -4.125rem;
     }
 }
-.page-template-page-home .masthead {
+.page-template-page-home .title-bar {
     z-index: 3;
     background: rgba(124, 150, 0, .65);
 }
 
-.page-template-page-home .masthead a {
+.page-template-page-home .title-bar a {
     color: #f9faf9;
 }

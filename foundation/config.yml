@@ -73,7 +73,6 @@ PATHS:
   javascript:
     - "bower_components/foundation-sites/js/foundation.core.js"
     - "bower_components/foundation-sites/js/foundation.util.*.js"
-    - "bower_components/foundation-sites/js/foundation.triggers.js"
     - "bower_components/foundation-sites/js/foundation.sticky.js"
     - "src/assets/js/!(app).js"
     - "src/assets/js/app.js"
