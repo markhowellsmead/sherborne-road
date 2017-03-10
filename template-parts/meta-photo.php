@@ -10,7 +10,7 @@ $content_meta = apply_filters('sherborne_road/post_meta_information', array(), $
 $out = array();
 
 foreach ($content_meta as $key => $meta) {
-    $out[] = '<span class="meta-content">'.$meta['content'].'</span>';
+    $out[] = '<span class="meta-content">' . $meta['content'] . '</span>';
 }
 
 if (!empty($out)) {
@@ -20,11 +20,13 @@ if (!empty($out)) {
     );
 }
 
-the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>'.__('More', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> ');
+the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>' . __('More', 'sherborne_road') . ': </li><li>', '</li><li>', '</li></ul> ');
 
 ?>
 </div><?php
 
-get_template_part('template-parts/map-small');
+if (is_single()) {
+    get_template_part('template-parts/map-small');
+}
 
 endif;
