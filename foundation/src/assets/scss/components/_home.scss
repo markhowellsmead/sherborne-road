@@ -1,0 +1,14 @@
+body.home {
+
+    .menu-icon::after {
+        background: $white;
+        box-shadow: 0 7px 0 $white, 0 14px 0 $white;
+    }
+
+    .sticky-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
+}
