@@ -18,7 +18,7 @@ UNCSS_OPTIONS:
 # Gulp will reference these paths when it copies files
 PATHS:
   # Path to distribution folder
-  dist: "dist"  
+  dist: "dist"
 
   # These files will be copied to the distribution folder
   # and must be linked individually. (They are not compiled
@@ -27,36 +27,12 @@ PATHS:
   copycss:
     # e.g.
     # - "bower_components/slick-carousel/slick/slick.css"
-    
+
   copyjavascript:
-    # - "bower_components/jquery/dist/jquery.js"
-    # - "bower_components/what-input/dist/what-input.js"
-    # - "bower_components/foundation-sites/js/foundation.core.js"
-    # - "bower_components/foundation-sites/js/foundation.util.*.js"
-    # - "bower_components/picturefill/dist/picturefill.min.js"
-    # - "bower_components/foundation-sites/js/foundation.abide.js"
-    # - "bower_components/foundation-sites/js/foundation.accordion.js"
-    # - "bower_components/foundation-sites/js/foundation.accordionMenu.js"
-    # - "bower_components/foundation-sites/js/foundation.drilldown.js"
-    # - "bower_components/foundation-sites/js/foundation.dropdown.js"
-    # - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
-    # - "bower_components/foundation-sites/js/foundation.equalizer.js"
-    # - "bower_components/foundation-sites/js/foundation.interchange.js"
-    # - "bower_components/foundation-sites/js/foundation.magellan.js"
-    # - "bower_components/foundation-sites/js/foundation.offcanvas.js"
-    # - "bower_components/foundation-sites/js/foundation.orbit.js"
-    # - "bower_components/foundation-sites/js/foundation.responsiveMenu.js"
-    # - "bower_components/foundation-sites/js/foundation.responsiveToggle.js"
-    # - "bower_components/foundation-sites/js/foundation.reveal.js"
-    # - "bower_components/foundation-sites/js/foundation.slider.js"
-    # - "bower_components/foundation-sites/js/foundation.sticky.js"
-    # - "bower_components/foundation-sites/js/foundation.tabs.js"
-    # - "bower_components/foundation-sites/js/foundation.toggler.js"
-    # - "bower_components/foundation-sites/js/foundation.tooltip.js"
-    # - "bower_components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js"
-    # - "bower_components/photoswipe/dist/photoswipe.min.js"
-    # - "bower_components/slick-carousel/slick/slick.min.js"
-    # - "bower_components/jquery_lazyload/jquery.lazyload.js"
+     - "bower_components/jquery/dist/jquery.js"
+     - "bower_components/foundation-sites/dist/js/foundation.min.js"
+     - "bower_components/what-input/dist/what-input.js"
+     - "bower_components/jquery_lazyload/jquery.lazyload.js"
   copylibs:
 
   # Paths to static assets that aren't images, CSS, or JavaScript

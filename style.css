@@ -237,12 +237,6 @@ input::-moz-placeholder { color: #999; }
     }
 }
 
-@media (min-width: 47rem){
-    .wrapper {
-        padding-top: 4.125rem;
-    }
-}
-
 @media (min-width: 40rem){
     .brand {
         text-align: left;
@@ -1023,17 +1017,4 @@ footer p {
 
 .page-template-page-home .brand {
     margin-top: 0;
-}
-.page-template-page-home .wrapper {
-    margin-top: -6.5625rem;
-}
-@media screen and (min-width: 40rem){
-    .page-template-page-home .wrapper {
-        margin-top: -3.875rem;
-    }
-}
-@media screen and (min-width: 47em){
-    .page-template-page-home .wrapper {
-        margin-top: -4.125rem;
-    }
 }
