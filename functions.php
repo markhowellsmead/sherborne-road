@@ -84,8 +84,9 @@ function sherborne_road_load_scripts()
     wp_enqueue_script('fancybox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/js/jquery.fancybox.min.js', array('jquery'), null, true);
     wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/jquery.lazyload.min.js', array('jquery'), $themeversion, true);
     wp_enqueue_script('ui', get_template_directory_uri() . '/js/ui.js', array('jquery', 'lazyload'), $themeversion, true);
+    //wp_enqueue_script('foundation', get_template_directory_uri() . '/foundation/dist/assets/js/foundation-sites/js/foundation.min.js', null, $themeversion, true);
 
-    wp_enqueue_script('foundation', get_template_directory_uri() . '/foundation/dist/assets/js/app.js', null, $themeversion, true);
+    wp_enqueue_script('app', get_template_directory_uri() . '/foundation/dist/assets/js/app.js', array('jquery'), $themeversion, true);
 }
 add_action('wp_enqueue_scripts', 'sherborne_road_load_scripts');
 
@@ -113,11 +114,11 @@ function sherborne_road_media()
         } elseif ($fieldvalue = get_post_meta($post->ID, 'multimedia', true)) {
             $media_content = $fieldvalue;
         } elseif ($fieldvalue = get_post_meta($post->ID, 'video_ref', true)) {
-            $media_content = wp_oembed_get($fieldvalue);
+            $media_content = '<div class="row column large-10 xlarge-8">' . wp_oembed_get($fieldvalue) . '</div>';
         }
 
         if ($media_content && $media_content !== '') {
-            echo '<div class="featured-image">' . $media_content . '</div>';
+            echo '<div class="featured-image block-margin-after">' . $media_content . '</div>';
         }
     }
 }

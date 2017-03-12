@@ -1,27 +1,36 @@
-<?php if (is_singular()) : ?>
+<?php if (is_singular()): ?>
 
-    <?php if ($comments) : ?>
+    <?php if (comments_open() || pings_open()): ?>
 
-    	<div class="comments">
+        <div class="comments aside">
 
-    		<h3 class="comment-reply-title"><?php _e('Comments', 'sherborne_road') ?></h3>
+            <div class="row column">
+               <?php comment_form([
+    'class_submit' => 'button',
+    'title_reply_before' => '<h5>',
+    'title_reply_after' => '</h5>',
+]);?>
+            </div>
 
-    		<?php wp_list_comments(array('style' => 'div')); ?>
+            <?php if ($comments): ?>
 
-    		<?php if (paginate_comments_links('echo=0')) : ?>
+                <div class="row column">
 
-    			<div class="pagination"><?php paginate_comments_links(); ?></div>
+            		<h3 class="comment-reply-title"><?php _e('Comments', 'sherborne_road')?></h3>
 
-    		<?php endif; ?>
+            		<?php wp_list_comments(array('style' => 'div'));?>
 
-    	</div> <!-- comments -->
+            		<?php if (paginate_comments_links('echo=0')): ?>
 
-    <?php endif; ?>
+            			<div class="pagination block-margin-after"><?php paginate_comments_links();?></div>
 
-    <?php if (comments_open() || pings_open()) : ?>
+            		<?php endif;?>
+                </div>
 
-    	<?php comment_form('comment_notes_before=&comment_notes_after='); ?>
+            <?php endif;?>
 
-    <?php endif; ?>
+    	</div>
 
-<?php endif; ?>
+    <?php endif;?>
+
+<?php endif;?>

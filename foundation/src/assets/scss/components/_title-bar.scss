@@ -2,8 +2,17 @@
 	font-family: $header-font-family;
 	width: 100%;
 	z-index: 10;
+
 	a {
 		border: none;
+	}
+
+	.row {
+		margin-bottom: 0;
+	}
+
+	.title-bar-title {
+		margin: 0;
 	}
 
 	@media screen {

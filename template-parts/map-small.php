@@ -43,16 +43,18 @@ class MapSmall
                 $altitude = '';
             }
 
-            echo '<div class="meta meta-box mod map map-small">
-                <h5 class="section-title">' . __('Geographic information', 'sherborne_road') . '</h5>
-                <div class="content">
-                    <a class="overlay flood-parent" href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '"></a>
-                    <div id="postMapSmall" class="atom googlemap small map-small flood-parent" data-map="detail" data-lat="' . $location_data['GPSLatitudeDecimal'] . '" data-lon="' . $location_data['GPSLongitudeDecimal'] . '" data-overlaytext="' . __('View this location at the Google Maps website', 'permanenttourist') . '">
-                        <p><a href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '">' . __('View this location at the Google Maps website', 'permanenttourist') . '</a></p>
+            echo '<aside class="meta aside mod map map-small block-margin-after">
+                <div class="row column">
+                    <h5 class="section-title">' . __('Geographic information', 'sherborne_road') . '</h5>
+                    <div class="content">
+                        <a class="overlay flood-parent" href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '"></a>
+                        <div id="postMapSmall" class="atom googlemap small map-small flood-parent" data-map="detail" data-lat="' . $location_data['GPSLatitudeDecimal'] . '" data-lon="' . $location_data['GPSLongitudeDecimal'] . '" data-overlaytext="' . __('View this location at the Google Maps website', 'permanenttourist') . '">
+                            <p><a href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '">' . __('View this location at the Google Maps website', 'permanenttourist') . '</a></p>
+                        </div>
                     </div>
+                    <p>' . $place_description . $altitude . '.</p>
                 </div>
-                <p>' . $place_description . $altitude . '.</p>
-            </div>';
+            </aside>';
         }
     }
 
@@ -154,7 +156,7 @@ class MapSmall
             $exifdata['GPSAltitudeCalculatedDecimal'] = null;
         }
 
-        $size = getimagesize($this->post_thumbnail, $info);
+        getimagesize($this->post_thumbnail, $info);
         if (isset($info['APP13'])) {
             $iptc = iptcparse($info['APP13']);
 
@@ -190,7 +192,7 @@ class MapSmall
     {
         $postID = get_the_ID();
         if ($postID) {
-            $thumbnailID = get_post_thumbnail_id($post->ID);
+            $thumbnailID = get_post_thumbnail_id($postID);
             if ($thumbnailID) {
                 $metaData = wp_get_attachment_metadata($thumbnailID);
                 $paths = wp_upload_dir();

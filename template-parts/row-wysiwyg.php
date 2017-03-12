@@ -15,16 +15,16 @@ if (!empty($title) || !empty($content)) {
         $inner_post = '';
     }
 
-    $out[] = '<div class="module wysiwyg">';
+    $out[] = '<div class="mod wysiwyg block-margin-after"><div class="row column">';
     $out[] = $inner_pre;
     if (!empty($title)) {
-        $out[] = '<header><h2 class="row-title">'.$title.'</h2></header>';
+        $out[] = '<header><h2 class="row-title">' . $title . '</h2></header>';
     }
     if (!empty($content)) {
         $out[] = apply_filters('the_content', $content);
     }
     $out[] = $inner_post;
-    $out[] = '</div>';
+    $out[] = '</div></div>';
 }
 
 echo implode('', $out);

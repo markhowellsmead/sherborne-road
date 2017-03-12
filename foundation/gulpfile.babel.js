@@ -1,6 +1,7 @@
 'use strict';
 
 import plugins  from 'gulp-load-plugins';
+import rename from 'gulp-rename';
 import yargs    from 'yargs';
 import browser  from 'browser-sync';
 import gulp     from 'gulp';
@@ -26,7 +27,7 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
-    gulp.series(clean, gulp.parallel(sass, javascript, images, copy)));
+    gulp.series(clean, gulp.parallel(sass, javascript, images, copy, copyJS)));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -43,6 +44,18 @@ function clean(done) {
 function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
+}
+
+/**
+ * Copies JavaScript files as-is from e.g. bower_components
+ * The path is manipulated to simplify the destination path.
+ */
+function copyJS() {
+    return gulp.src(PATHS.copyjavascript, { base: '.' })
+        .pipe(rename(function(path) {
+            path.dirname = path.dirname.replace(/bower_components/g, '').replace(/node_modules/g, '').replace(/dist/g, '');
+        }))
+        .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
 // Compile Sass into CSS

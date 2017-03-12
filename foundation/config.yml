@@ -30,9 +30,9 @@ PATHS:
 
   copyjavascript:
      - "bower_components/jquery/dist/jquery.js"
-     - "bower_components/foundation-sites/dist/js/foundation.min.js"
+     # - "bower_components/foundation-sites/dist/js/foundation.min.js"
      - "bower_components/what-input/dist/what-input.js"
-     - "bower_components/jquery_lazyload/jquery.lazyload.js"
+     # - "bower_components/jquery_lazyload/jquery.lazyload.js"
   copylibs:
 
   # Paths to static assets that aren't images, CSS, or JavaScript
@@ -49,6 +49,7 @@ PATHS:
   javascript:
     - "bower_components/foundation-sites/js/foundation.core.js"
     - "bower_components/foundation-sites/js/foundation.util.*.js"
+    - "bower_components/foundation-sites/js/foundation.offcanvas.js"
     - "bower_components/foundation-sites/js/foundation.sticky.js"
     - "src/assets/js/!(app).js"
     - "src/assets/js/app.js"

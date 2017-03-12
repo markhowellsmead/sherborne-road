@@ -5,7 +5,9 @@ $out = array();
 
 $image = get_sub_field('image');
 
-$out[] = '<div class="module row banner_image expanded" style="background-image:url(\'' . $image['sizes']['photo-full'] . '\')">';
-$out[] = '</div>';
+printf(
+    '<div class="mod row expanded banner-image block-margin-after" style="background-image:url(\'%1$s\')"></div>',
+    $image['sizes']['photo-full']
+);
 
 echo implode('', $out);

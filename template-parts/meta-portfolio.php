@@ -1,9 +1,8 @@
 <?php
 if (is_singular()):
-?><div class="meta">
-
+?><div class="meta block-margin-after">
+<div class="row column">
 <?php
-
 
 global $post;
 
@@ -50,7 +49,7 @@ $content_meta['website'] = array(
 $out = array();
 
 foreach ($content_meta as $key => $meta) {
-    $out[] = '<span class="meta-content">'.$meta['content'].'</span>';
+    $out[] = '<span class="meta-content">' . $meta['content'] . '</span>';
 }
 
 if (!empty($out)) {
@@ -60,9 +59,10 @@ if (!empty($out)) {
     );
 }
 
-the_terms(get_the_ID(), 'technology', '<ul class="tags inline"><li>'.__('Technologies', 'sherborne_road').': </li><li>', '</li><li>', '</li></ul> ');
+the_terms(get_the_ID(), 'technology', '<ul class="tags inline"><li>' . __('Technologies', 'sherborne_road') . ': </li><li>', '</li><li>', '</li></ul> ');
 
 ?>
+</div>
 </div><?php
 
 endif;

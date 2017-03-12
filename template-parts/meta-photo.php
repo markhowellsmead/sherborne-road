@@ -1,32 +1,27 @@
 <?php
-if (is_singular()):
-?><div class="meta">
+if (is_singular()) {
 
-<?php
+    global $post;
+    $content_meta = apply_filters('sherborne_road/post_meta_information', array(), $post);
 
-global $post;
-$content_meta = apply_filters('sherborne_road/post_meta_information', array(), $post);
+    $out = array();
 
-$out = array();
+    foreach ($content_meta as $key => $meta) {
+        $out[] = '<span class="meta-content">' . $meta['content'] . '</span>';
+    }
 
-foreach ($content_meta as $key => $meta) {
-    $out[] = '<span class="meta-content">' . $meta['content'] . '</span>';
-}
-
-if (!empty($out)) {
     printf(
-        '<p class="meta-box post-meta">%1$s</p>',
-        implode('<br>', $out)
+        '<aside class="meta aside block-margin-after">
+            <div class="row column">
+                %1$s
+                %2$s
+            </div>
+        </aside>',
+        !empty($out) ? '<p class="meta-box post-meta">' . implode('<br>', $out) . '</p>' : '',
+        get_the_term_list(get_the_ID(), 'collection', '<h5>' . __('More like this', 'sherborne_road') . '</h5><ul class="tags inline"><li>', '</li><li>', '</li></ul> ')
     );
+
+    if (is_single()) {
+        get_template_part('template-parts/map-small');
+    }
 }
-
-the_terms(get_the_ID(), 'collection', '<ul class="tags inline"><li>' . __('More', 'sherborne_road') . ': </li><li>', '</li><li>', '</li></ul> ');
-
-?>
-</div><?php
-
-if (is_single()) {
-    get_template_part('template-parts/map-small');
-}
-
-endif;

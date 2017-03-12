@@ -2,49 +2,30 @@
 get_header();
 ?>
 
-        <div class="wrapper">
+<div class="wrapper">
 
-            <?php
+<?php
 
 if (have_posts()) {
     if (is_archive()) {
         get_template_part('template-parts/archive-header');
     }
 
-    while (have_posts()):
-        the_post(); ?>
+    the_post();?>
 
-	                    <div <?php post_class('post'); ?>>
+        <div <?php post_class('post');?>>
 
-	                        <?php
-    get_template_part('template-parts/thumbnail');
-    if (is_singular() && function_exists('sherborne_road_media')) {
-        sherborne_road_media();
-    }
-    get_template_part('template-parts/header-post'); ?>
-
-	                        <div class="content">
-
-	                            <?php
-    if (is_singular()) {
-        the_content();
-    } else {
-        the_excerpt();
-        get_template_part('template-parts/linkto', get_post_type());
-    } ?>
-
-	                        </div>
-
-	                        <?php
+<?php
+get_template_part('template-parts/header-post');
+    get_template_part('template-parts/post-content', get_post_type());
     get_template_part('template-parts/linkpages');
     get_template_part('template-parts/meta', get_post_type());
-    comments_template(); ?>
+    comments_template();?>
 
-	                    </div>
+        </div>
 
-	                    <?php
+<?php
 
-    endwhile;
 } else {
     get_template_part('template-parts/404');
 }

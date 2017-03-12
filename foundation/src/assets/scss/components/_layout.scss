@@ -1,0 +1,56 @@
+.block-margin-after {
+    margin-bottom: $global-margin;
+}
+
+.mod.banner-image {
+    height: 100vh;
+    background: center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-image {
+    text-align: center;
+    img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-height: 75vh;
+        margin-left: auto;
+        margin-right: auto;
+        .single & {
+            width: auto;
+        }
+    }
+    .post-list & {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.post-header {
+    position: relative;
+    > .row {
+        position: relative;
+    }
+}
+
+.post-list {
+    .post-content {
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            border-bottom: $hr-border;
+            margin: $global-margin*2 10% 0;
+            position: relative;
+        }
+    }
+}
+
+.wrapper {
+    position: relative;
+    z-index: 0;
+    margin: $global-margin*2 auto;
+}
