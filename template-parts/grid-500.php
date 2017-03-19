@@ -2,7 +2,6 @@
 <?php
 
 if (have_posts()) {
-    get_template_part('template-parts/archive-header');
 
     echo '<!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza --><div class="mod grid500">';
 
