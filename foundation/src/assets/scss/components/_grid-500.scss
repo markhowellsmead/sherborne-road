@@ -1,0 +1,36 @@
+.mod.grid500 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+    &::after {
+        content: '';
+        flex-grow: 999999999;
+        min-width: 20%;
+        order: 999999999;
+    }
+    .grid-item {
+        margin: .0625rem;
+        background-color: #f0f0f0;
+        position: relative;
+        &:hover .caption {
+            opacity: 1;
+        }
+        @media screen and (min-width: 64rem) {
+            margin: .125rem;
+        }
+    }
+    .uncollapse {
+        // Stop layout collapsing before the images have loaded
+        display: block;
+        background-color: #f0f0f0;
+    }
+    .image {
+        position: absolute;
+        vertical-align: bottom;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

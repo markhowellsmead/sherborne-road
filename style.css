@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.15.3
+	Version: 1.16.0
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -317,37 +317,6 @@ ul.inline li {
     .navigation.next-previous a[rel="next"] {
         right: -4rem;
     }
-}
-
-.list-header.with-image {
-    background: #e8e9e8 center/cover no-repeat;
-    padding-top: calc(4vh + 2rem);
-    overflow: hidden;
-    box-shadow: inset 0 0 .25rem rgba(0, 0, 0, .25);
-    display: flex;
-    align-items: flex-end;
-}
-
-.list-header.with-image:before {
-    display: none;
-}
-
-.list-header.with-image:after {
-    content: '';
-    display: block;
-    height: 0;
-    padding-bottom: 25%;
-}
-
-.list-header .list-header-content {
-    padding: 0 0 1rem;
-    max-width: 49rem;
-}
-
-.list-header.with-image .list-header-content {
-    background: rgba(255, 255, 255, .9);
-    padding: 2rem 2rem 1rem;
-    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25);
 }
 
 .mod.map-small .content {

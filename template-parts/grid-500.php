@@ -1,4 +1,4 @@
-<div class="row expanded column">
+<div class="row expanded">
 <?php
 
 if (have_posts()) {

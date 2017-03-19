@@ -51,7 +51,12 @@
 @include motion-ui-animations;
 
 @import 'components/layout';
-@import 'components/home';
 @import 'components/offcanvas';
 @import 'components/title-bar';
 @import 'components/typography';
+
+// Own stuff
+@import 'components/grid-500';
+@import 'components/home';
+@import 'components/list-header';
+@import 'components/taxonomies';
