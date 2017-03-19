@@ -1,6 +1,6 @@
 <?php
 if (get_post_format() !== 'aside') {
-    get_template_part('template-parts/thumbnail');
+    get_template_part('template-parts/thumbnail', get_post_type());
     ?>
 
 <header class="post-header block-margin-after">
