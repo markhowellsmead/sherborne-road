@@ -2,7 +2,7 @@
 
 	Theme Name: Sherborne Road
     Text Domain: sherborne_road
-	Version: 1.16.0
+	Version: 1.17.0
 	Description: Sherborne Road is a simple WordPress theme, based on “Davis” by Andres Norén. It features the aside post format, featured images and a responsive design.
 	Tags: blog, one-column, custom-menu, featured-images, post-formats, threaded-comments, translation-ready
 	Author: Mark Howells-Mead
@@ -154,94 +154,8 @@ ul.inline li {
     }
 }
 
-.menu {
-	text-align: center;
-}
-.menu li {
-    display: inline-block;
-    text-align: center;
-    padding: 0 1rem;
-}
-
-.menu ul {
-    display: none;
-}
-
-.brand > .menu {
-    display: none;
-}
-
 .current-menu-item > a {
     color: rgb(124, 150, 0);
-}
-
-@media ( min-width: 40rem ) {
-
-    .menu li { position: relative; }
-    .menu > li { display: inline-block; }
-
-    /*
-    .menu .page_item_has_children > a:after,
-    .menu .menu-item-has-children > a:after {
-        content: " ▼";
-        font-family: 'Helvetica', sans-serif;
-        font-size: .75rem;
-        margin-left: .25rem;
-    }
-    */
-
-    .menu ul {
-        position: absolute;
-            left: -10000px;
-            top: 1.5rem;
-        width: 200px;
-        display: block;
-    }
-
-    .menu > li > ul {
-        font-size: 0.9em;
-        padding-top: 20px;
-    }
-
-    .menu li ul:before {
-        border: .0625rem solid transparent;
-        border-bottom-color: #111;
-        content: "";
-        display: block;
-        margin-left: -6px;
-        position: absolute;
-            left: 50%;
-            top: 8px;
-    }
-
-    .menu ul a {
-        display: block;
-        padding: 0 0 .5rem;
-    }
-
-    .menu > li:hover > ul {
-        left: 50%;
-        margin-left: -100px;
-    }
-
-    .menu ul li ul {
-        margin: 0;
-        padding-left: 20px;
-        top: 0;
-        width: 220px;
-    }
-
-    .menu ul li ul:before {
-        border-color: transparent;
-        border-right-color: #111;
-        left: 1rem;
-        top: 18px;
-    }
-
-    .menu ul li:hover > ul {
-        left: 200px;
-    }
-
 }
 
 .subheader {

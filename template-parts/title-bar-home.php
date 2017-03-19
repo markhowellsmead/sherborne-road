@@ -1,6 +1,6 @@
 <div data-sticky-container>
     <div class="title-bar" data-sticky data-margin-top="0">
-        <div class="row align-justify align-bottom">
+        <div class="row align-justify align-middle">
             <div class="column">
                 <h1 class="title-bar-title"><a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name');?></a></h1>
             </div>
