@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    margin: 0 auto;
+    flex-basis: 100%;
+    margin: 0 auto $global-margin;
     &::after {
         content: '';
         flex-grow: 999999999;
