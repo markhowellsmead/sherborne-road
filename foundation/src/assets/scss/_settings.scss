@@ -586,7 +586,7 @@ $thumbnail-radius: $global-radius;
 // 35. Title Bar
 // -------------
 
-$titlebar-background: linear-gradient($white 25%, rgba($white, .9) 65%, rgba($white, .8) 100%);
+$titlebar-background: transparent;
 $titlebar-color: $body-font-color;
 $titlebar-padding: 1rem 0;
 $titlebar-text-font-weight: $global-weight-normal;
