@@ -51,5 +51,6 @@ PATHS:
     - "bower_components/foundation-sites/js/foundation.util.*.js"
     - "bower_components/foundation-sites/js/foundation.offcanvas.js"
     - "bower_components/foundation-sites/js/foundation.sticky.js"
+    - "node_modules/picturefill/dist/picturefill.min.js"
     - "src/assets/js/!(app).js"
     - "src/assets/js/app.js"

@@ -48,5 +48,8 @@
       "es2015"
     ]
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "picturefill": "^3.0.2"
+  }
 }

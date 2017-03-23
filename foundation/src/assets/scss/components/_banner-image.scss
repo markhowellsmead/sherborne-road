@@ -1,0 +1,10 @@
+.mod.banner-image {
+	> img {
+		max-width: none;
+		object-fit: cover;
+		// font-family: 'object-fit: cover';
+	}
+	&.compat-object-fit > img {
+		display: none;
+	}
+}
