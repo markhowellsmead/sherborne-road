@@ -62,6 +62,7 @@ function sherborne_road_load_styles()
     wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
     wp_enqueue_style('sherborne_road_foundation', get_template_directory_uri() . '/foundation/dist/assets/css/app.css', array('sherborne_road_style'), null);
     wp_enqueue_style('fancybox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/css/jquery.fancybox.min.css', array('sherborne_road_style'), null);
+    wp_enqueue_style('dashicons');
 }
 add_action('wp_enqueue_scripts', 'sherborne_road_load_styles');
 

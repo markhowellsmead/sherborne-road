@@ -1,0 +1,38 @@
+.mod.hero_element {
+	position: relative;
+	> img {
+		max-width: none;
+		object-fit: cover;
+		width: 100%; // Still needed, despite object-fit
+	}
+	&.compat-object-fit > img {
+		display: none;
+	}
+	.caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		padding: $global-padding;
+		color: $white;
+		h1, h2 {
+			position: relative;
+			z-index: 1;
+		}
+		&:before, &:after {
+			display: block;
+			content: '';
+			position: absolute;
+			top: 0; left: 0;
+			bottom: 0; right: 0;
+			width: 100%; height: 100%;
+		}
+		&:before {
+			background-color: rgba($white, .25);
+		}
+		&:after {
+			background: rgba($primary-color, .85);
+			mix-blend-mode: multiply;
+		}
+	}
+}
