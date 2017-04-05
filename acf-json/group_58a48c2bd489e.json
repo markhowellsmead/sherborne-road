@@ -210,6 +210,140 @@
                                 "class": "",
                                 "id": ""
                             }
+                        },
+                        {
+                            "layouts": [
+                                {
+                                    "key": "58e4d05ba9cee",
+                                    "name": "standard_buttons",
+                                    "label": "Standard buttons",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "layouts": [
+                                                {
+                                                    "key": "58e4d07d1cdc8",
+                                                    "name": "primary_button",
+                                                    "label": "Primary button",
+                                                    "display": "block",
+                                                    "sub_fields": [
+                                                        {
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "key": "field_58e4d085ad2f4",
+                                                            "label": "Label",
+                                                            "name": "label",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            }
+                                                        },
+                                                        {
+                                                            "key": "field_58e4d08ead2f5",
+                                                            "label": "Link",
+                                                            "name": "link",
+                                                            "type": "link_picker",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            }
+                                                        }
+                                                    ],
+                                                    "min": "",
+                                                    "max": ""
+                                                },
+                                                {
+                                                    "key": "58e4d189420f5",
+                                                    "name": "secondary_button",
+                                                    "label": "Secondary button",
+                                                    "display": "block",
+                                                    "sub_fields": [
+                                                        {
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "key": "field_58e4d189420f6",
+                                                            "label": "Label",
+                                                            "name": "label",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            }
+                                                        },
+                                                        {
+                                                            "key": "field_58e4d189420f7",
+                                                            "label": "Link",
+                                                            "name": "link",
+                                                            "type": "link_picker",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            }
+                                                        }
+                                                    ],
+                                                    "min": "",
+                                                    "max": ""
+                                                }
+                                            ],
+                                            "min": "",
+                                            "max": "",
+                                            "button_label": "Add button",
+                                            "key": "field_58e4d063ad2f3",
+                                            "label": "Button",
+                                            "name": "button",
+                                            "type": "flexible_content",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            }
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": "",
+                            "button_label": "Add button group",
+                            "key": "field_58e4d04fad2f2",
+                            "label": "Button group",
+                            "name": "button_group",
+                            "type": "flexible_content",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
                         }
                     ],
                     "min": "",
@@ -291,5 +425,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1490356884
+    "modified": 1491390867
 }
