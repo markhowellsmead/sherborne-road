@@ -2,8 +2,7 @@
 	> img {
 		max-width: none;
 		object-fit: cover;
-		object-position: center;
-		// font-family: 'object-fit: cover';
+		width: 100%; // Still needed, despite object-fit
 	}
 	&.compat-object-fit > img {
 		display: none;
