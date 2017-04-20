@@ -3,8 +3,8 @@
 if (has_post_thumbnail()) {
     if (is_singular()) {
         printf(
-            '<figure class="featured-image row expanded align-center block-margin-after"><div class="column large-10 xlarge-8">%1$s</div></figure>',
-            get_the_post_thumbnail(get_the_ID(), 'photo-full')
+            '<figure class="featured-image row expanded align-center block-margin-after"><div class="column large-10">%1$s</div></figure>',
+            get_the_post_thumbnail(get_the_ID(), 'full')
         );
     } else {
         printf(
@@ -16,7 +16,7 @@ if (has_post_thumbnail()) {
             get_the_post_thumbnail(get_the_ID(), 'medium')
         );
     }
-} else if (!is_singular() && function_exists('sherborne_road_video_thumbnail') && $video_url = get_post_meta(get_the_ID(), 'video_ref', true)) {
+} elseif (!is_singular() && function_exists('sherborne_road_video_thumbnail') && $video_url = get_post_meta(get_the_ID(), 'video_ref', true)) {
     if ($thumbnail = sherborne_road_video_thumbnail($video_url)) {
         printf(
             '<div class="featured-image row column block-margin-after">
@@ -29,6 +29,6 @@ if (has_post_thumbnail()) {
             $thumbnail
         );
     }
-} else if (is_singular() && function_exists('sherborne_road_media')) {
+} elseif (is_singular() && function_exists('sherborne_road_media')) {
     sherborne_road_media();
 }
