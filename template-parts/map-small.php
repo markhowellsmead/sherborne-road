@@ -47,9 +47,9 @@ class MapSmall
                 <div class="row column">
                     <h5 class="section-title">' . __('Geographic information', 'sherborne_road') . '</h5>
                     <div class="content">
-                        <a class="overlay flood-parent" href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '"></a>
-                        <div id="postMapSmall" class="atom googlemap small map-small flood-parent" data-map="detail" data-lat="' . $location_data['GPSLatitudeDecimal'] . '" data-lon="' . $location_data['GPSLongitudeDecimal'] . '" data-overlaytext="' . __('View this location at the Google Maps website', 'permanenttourist') . '">
-                            <p><a href="//maps.google.com/?t=h&amp;q=' . $location_data['GPSCalculatedDecimal'] . '">' . __('View this location at the Google Maps website', 'permanenttourist') . '</a></p>
+                        <a class="overlay flood-parent" href="https://earth.google.com/web/search/' . $location_data['GPSCalculatedDecimal'] . '/"></a>
+                        <div id="postMapSmall" class="atom googlemap small map-small flood-parent" data-map="detail" data-lat="' . $location_data['GPSLatitudeDecimal'] . '" data-lon="' . $location_data['GPSLongitudeDecimal'] . '" data-overlaytext="' . __('View this location in Google Earth', 'permanenttourist') . '">
+                            <p><a href="https://earth.google.com/web/search/' . $location_data['GPSCalculatedDecimal'] . '/">' . __('View this location in Google Earth', 'permanenttourist') . '</a></p>
                         </div>
                     </div>
                     <p>' . $place_description . $altitude . '.</p>
