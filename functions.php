@@ -61,6 +61,7 @@ function sherborne_road_load_styles()
     wp_enqueue_style('sherborne_road_fonts', '//fonts.googleapis.com/css?family=Playfair+Display');
     wp_enqueue_style('sherborne_road_style', get_stylesheet_uri(), null, $themeversion);
     wp_enqueue_style('sherborne_road_foundation', get_template_directory_uri() . '/foundation/dist/assets/css/app.css', array('sherborne_road_style'), $themeversion);
+    // wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css', array('sherborne_road_style', 'sherborne_road_foundation'), $themeversion);
     wp_enqueue_style('fancybox', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/css/jquery.fancybox.min.css', array('sherborne_road_style'), $themeversion);
 }
 add_action('wp_enqueue_scripts', 'sherborne_road_load_styles');
