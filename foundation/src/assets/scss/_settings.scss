@@ -131,7 +131,7 @@ $header-styles: (
   ),
 );
 $header-text-rendering: optimizeLegibility;
-$small-font-size: .8rem;
+$small-font-size: .7rem;
 $header-small-font-color: $dark-gray;
 $paragraph-lineheight: $global-lineheight;
 $paragraph-margin-bottom: $global-margin;
@@ -161,9 +161,9 @@ $defnlist-term-margin-bottom: 0.3rem;
 $blockquote-color: $dark-gray;
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
-$cite-font-size: rem-calc(13);
+$cite-font-size: 1rem;
 $cite-color: $dark-gray;
-$cite-pseudo-content: '\2014 \0020';
+$cite-pseudo-content: '';
 $keystroke-font: $font-family-monospace;
 $keystroke-color: $black;
 $keystroke-background: $light-gray;

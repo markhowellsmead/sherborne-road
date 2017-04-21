@@ -2,6 +2,38 @@
     margin-bottom: $global-margin;
 }
 
+.comments {
+    margin: $global-margin 0;
+    .comment {
+        margin: $global-margin 0;
+        p {
+            font-size: 1rem;
+            padding-left: 2.5rem;
+        }
+    }
+    .comment-author,
+    .comment-meta {
+        position: relative;
+        padding-left: 2.5rem;
+    }
+    .comment-meta {
+        font-size: $small-font-size;
+    }
+    .comment-author .says {
+        display: none;
+    }
+    .comment-author .avatar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2rem;
+    }
+    cite {
+        font-style: normal;
+        font-family: $header-font-family;
+    }
+}
+
 .mod.banner-image {
     height: 100vh;
     background: center/cover no-repeat;
