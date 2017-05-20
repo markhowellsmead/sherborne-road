@@ -1,5 +1,5 @@
 <div data-sticky-container>
-    <div class="title-bar" data-sticky data-margin-top="0">
+    <div class="title-bar">
         <div class="row align-justify align-middle">
             <div class="column">
                 <h4 class="title-bar-title"><a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name');?></a></h4>
