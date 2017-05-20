@@ -52,7 +52,7 @@ class MapSmall
                             <p><a href="https://earth.google.com/web/search/' . $location_data['GPSCalculatedDecimal'] . '/">' . __('View this location in Google Earth', 'permanenttourist') . '</a></p>
                         </div>
                     </div>
-                    <p>' . $place_description . $altitude . '.</p>
+                    <!--p>' . $place_description . $altitude . '.</p-->
                 </div>
             </aside>';
         }
