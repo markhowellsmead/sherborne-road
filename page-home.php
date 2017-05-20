@@ -3,7 +3,7 @@
 Template Name: Home
  */
 
-get_header('home');
+get_header();
 ?>
 
 <div class="off-canvas-wrapper">
